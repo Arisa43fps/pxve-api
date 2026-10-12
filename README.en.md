@@ -1,6 +1,7 @@
 # Pxve API
 
 [![Deno](https://img.shields.io/badge/Deno-2-blue.svg)](https://deno.land/)
+[![Version](https://img.shields.io/badge/Version-1.9.2-blue.svg)](https://github.com/asadahimeka/pxve-api)
 [![Hono](https://img.shields.io/badge/Hono-E36002.svg?style=flat&logo=Hono&logoColor=white)](https://hono.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/asadahimeka/pxve-api)
@@ -13,6 +14,10 @@ A program that implements an easy-to-use API for Pixiv-related sites, used by [P
 Demo: [api.pxve.cc](https://api.pxve.cc)
 
 API Documentation: [api.pxve.cc/docs](https://api.pxve.cc/docs)
+
+## 🟢 Node.js Version
+
+This branch (`main`) is the Deno edition. A `nodejs` branch provides a Node.js (v24 + pnpm) implementation with the same API; only runtime-level details differ: dependencies via `package.json`/`pnpm-lock.yaml`, import alias `#lib/*`, and tests via `npm test` (node:test). Switch branches as needed.
 
 ## ✨ Features
 

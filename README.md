@@ -1,6 +1,7 @@
 # Pxve API
 
 [![Deno](https://img.shields.io/badge/Deno-2-blue.svg)](https://deno.land/)
+[![Version](https://img.shields.io/badge/Version-1.9.2-blue.svg)](https://github.com/asadahimeka/pxve-api)
 [![Hono](https://img.shields.io/badge/Hono-E36002.svg?style=flat&logo=Hono&logoColor=white)](https://hono.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/asadahimeka/pxve-api)
@@ -13,6 +14,10 @@
 Demo: [api.pxve.cc](https://api.pxve.cc)
 
 API 文档：[api.pxve.cc/docs](https://api.pxve.cc/docs)
+
+## 🟢 Node.js 版本
+
+本分支（`main`）是 Deno 版。另有 `nodejs` 分支提供 Node.js（v24 + pnpm）实现，API 与本分支对齐，差异仅在运行时层面：包管理用 `package.json`/`pnpm-lock.yaml`、导入别名用 `#lib/*`、测试用 `npm test`（node:test）。按需切换分支使用。
 
 ## ✨ 特性
 

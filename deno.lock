@@ -7,7 +7,6 @@
     "jsr:@std/internal@^1.0.14": "1.0.14",
     "jsr:@std/path@^1.1.4": "1.1.6",
     "jsr:@std/path@^1.1.5": "1.1.6",
-    "npm:@__dirname/pixiv-web-api@0.1.4": "0.1.4",
     "npm:@hono/swagger-ui@~0.5.3": "0.5.3_hono@4.13.5",
     "npm:@scalar/hono-api-reference@~0.9.34": "0.9.48_hono@4.13.5",
     "npm:@types/crypto-js@*": "4.2.2",
@@ -54,11 +53,6 @@
     }
   },
   "npm": {
-    "@__dirname/pixiv-web-api@0.1.4": {
-      "integrity": "sha512-VSGcYSGXir4vVUefE8b3bhyVNLWk17eebHqtrjbW5P+YXryF/oL2Raok5LP1Pw3rhGTD5ABONr/08IbUEt4xmw==",
-      "scripts": true,
-      "tarball": "https://registry.npmmirror.com/@__dirname/pixiv-web-api/-/pixiv-web-api-0.1.4.tgz"
-    },
     "@emnapi/runtime@1.11.3": {
       "integrity": "sha512-Xz4Tpyki7XyrpbUK1jR1AhdAdaXyhhY4lZ3neLodmhpuWfy2PAQN5B46sAiU4liOXGLkHypn/qU+jvfWSCYYLA==",
       "dependencies": [
@@ -1124,7 +1118,6 @@
       "jsr:@std/assert@^1.0.18",
       "jsr:@std/fs@^1.0.21",
       "jsr:@std/path@^1.1.4",
-      "npm:@__dirname/pixiv-web-api@0.1.4",
       "npm:@hono/swagger-ui@~0.5.3",
       "npm:@scalar/hono-api-reference@~0.9.34",
       "npm:await-lock@2.2.2",

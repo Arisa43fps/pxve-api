@@ -1,5 +1,4 @@
 // src/services/x-media/index.ts — native Deno implementation (no Python subprocess).
-// Legacy Python fallback kept at ./fetch_x_media.py for A/B comparison only.
 import { join } from '@std/path'
 import { XClient } from './api.ts'
 

@@ -79,7 +79,7 @@ Partially compatible with HibiAPI.
 
 createOpenApiDocument(
   app,
-  { info: { title: 'Pxve API', version: '1.0.0', description } },
+  { info: { title: 'Pxve API', version: '1.9.2', description } },
   { routeName: '/openapi.json' }
 )
 

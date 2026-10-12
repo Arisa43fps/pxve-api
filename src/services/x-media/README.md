@@ -1,13 +1,13 @@
 # X 媒体推文抓取服务
 
-这个服务用于抓取 X（Twitter）用户的媒体推文，通过调用 Python 脚本使用 `twikit` 库来获取数据。
+这个服务用于抓取 X（Twitter）用户的媒体推文，使用纯 Deno 原生实现直接调用 X API 获取数据。
 
 ## 📋 功能概述
 
 - 通过用户名或用户 ID 获取 X 用户的媒体推文
 - 支持分页获取（使用 cursor）
 - 返回推文的详细信息，包括媒体文件（图片、视频）
-- 使用 Deno + Python 混合架构
+- 使用纯 Deno 原生实现
 
 ## 🛠️ 环境要求
 
@@ -19,22 +19,7 @@
 
 ## 📦 安装配置
 
-### 1. 安装 Python 依赖
-
-```bash
-# 安装 twikit 库
-pip install twikit
-
-# 或者使用 pip3
-pip3 install twikit
-
-# 如果使用虚拟环境（推荐）
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install twikit
-```
-
-### 2. 配置 X Cookie
+### 1. 配置 X Cookie
 
 为了访问 X API，需要提供有效的 Cookie：
 
@@ -56,7 +41,7 @@ pip install twikit
 
 > ⚠️ **重要**: Cookie 包含敏感信息，请勿提交到版本控制系统
 
-### 3. Cookie 来源（环境变量，PaaS 友好）
+### 2. Cookie 来源（环境变量，PaaS 友好）
 
 文件系统不方便的平台（Railway / Render / Koyeb 等）可用环境变量提供 Cookie，优先级从高到低：
 
@@ -123,29 +108,7 @@ const result = await runFetchXMediaCmd(null, '44196397')
 const result = await runFetchXMediaCmd('elonmusk', null, 'cursor_string')
 ```
 
-### 直接使用 Python 脚本
-
-> Legacy：`fetch_x_media.py` 仅保留用于与原生实现做 A/B 对照，不再被服务调用。注意 pip 版 twikit 已过时，直接运行可能报错；对照运行时用 `PYTHONPATH=<repo>/reference/twikit` 指向仓库内最新 fork。
-
-```bash
-# 通过用户名获取
-python fetch_x_media.py --user elonmusk --limit 20
-
-# 通过用户ID获取
-python fetch_x_media.py --userid 44196397 --limit 40
-
-# 使用分页
-python fetch_x_media.py --user elonmusk --cursor "cursor_string"
-```
-
-### 命令行参数说明
-
-| 参数       | 说明                    | 必需                 | 默认值 |
-| ---------- | ----------------------- | -------------------- | ------ |
-| `--user`   | X 用户名（如 elonmusk） | 与 `--userid` 二选一 | -      |
-| `--userid` | X 用户 ID（数字）       | 与 `--user` 二选一   | -      |
-| `--limit`  | 获取推文数量限制        | 否                   | 40     |
-| `--cursor` | 分页游标                | 否                   | -      |
+函数签名：`runFetchXMediaCmd(username | null, userId | null, cursor?, limit = 40)`，用户名与用户 ID 二选一。
 
 ## 📊 返回数据格式
 
@@ -187,20 +150,13 @@ python fetch_x_media.py --user elonmusk --cursor "cursor_string"
    解决: 重新获取最新的 Cookie 并更新 cookies.json
    ```
 
-2. **twikit 未安装**
-
-   ```
-   ModuleNotFoundError: No module named 'twikit'
-   解决: pip install twikit
-   ```
-
-3. **用户不存在**
+2. **用户不存在**
 
    ```
    解决: 检查用户名或用户ID是否正确
    ```
 
-4. **权限问题**
+3. **权限问题**
    ```
    解决: 确保 cookies.json 文件权限正确，包含有效的认证信息
    ```
@@ -209,20 +165,11 @@ python fetch_x_media.py --user elonmusk --cursor "cursor_string"
 
 1. **查看详细错误信息**：
 
-   ```bash
-   python fetch_x_media.py --user 用户名 2>&1
-   ```
+   启动时带 `--dev` 查看服务端日志，确认 Cookie 加载与请求状态。
 
 2. **验证 Cookie 有效性**：
    - 在浏览器中访问 X.com 确保登录状态
    - 检查 Cookie 是否包含所有必要的认证信息
-
-3. **测试 twikit 功能**：
-   ```python
-   from twikit import Client
-   client = Client('en-US')
-   # 测试加载 Cookie 是否成功
-   ```
 
 ## 📝 注意事项
 
@@ -240,7 +187,6 @@ python fetch_x_media.py --user elonmusk --cursor "cursor_string"
 
 ## 📚 相关资源
 
-- [twikit 官方文档](https://github.com/d60/twikit)
 - [X API 文档](https://developer.twitter.com/en/docs/twitter-api)
 - [Deno 官方文档](https://deno.land/)
 

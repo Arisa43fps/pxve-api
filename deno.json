@@ -1,11 +1,13 @@
 {
+  "version": "1.9.2",
   "tasks": {
     "dev": "deno run --watch --env --allow-all ./src/app.ts --dev",
     "start": "deno run --env --allow-all ./src/app.ts",
+    "test": "deno test --env --allow-all tests/",
     "type-check": "deno check ./src/**/*.ts",
+    "bump-version": "deno run -A scripts/bump-version.ts",
     "manage-cache": "deno run -A scripts/cache-manage.ts",
-    "lint": "deno lint",
-    "test": "deno test --env --allow-all tests/"
+    "lint": "deno lint"
   },
   "imports": {
     "@lib/": "./src/lib/",
@@ -13,7 +15,6 @@
     "@std/assert": "jsr:@std/assert@^1.0.18",
     "@std/fs": "jsr:@std/fs@^1.0.21",
     "@std/path": "jsr:@std/path@^1.1.4",
-    "@__dirname/pixiv-web-api": "npm:@__dirname/pixiv-web-api@0.1.4",
     "@hono/swagger-ui": "npm:@hono/swagger-ui@^0.5.3",
     "@scalar/hono-api-reference": "npm:@scalar/hono-api-reference@^0.9.34",
     "await-lock": "npm:await-lock@2.2.2",
