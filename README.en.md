@@ -11,10 +11,6 @@ English | [中文](./README.md)
 
 A program that implements an easy-to-use API for Pixiv-related sites, used by [Pixiv Viewer](https://github.com/asadahimeka/pixiv-viewer).
 
-Demo: [api.pxve.cc](https://api.pxve.cc)
-
-API Documentation: [api.pxve.cc/docs](https://api.pxve.cc/docs)
-
 ## 🟢 Node.js Version
 
 This branch (`main`) is the Deno edition. A `nodejs` branch provides a Node.js (v24 + pnpm) implementation with the same API; only runtime-level details differ: dependencies via `package.json`/`pnpm-lock.yaml`, import alias `#lib/*`, and tests via `npm test` (node:test). Switch branches as needed.

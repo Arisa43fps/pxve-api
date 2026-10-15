@@ -11,10 +11,6 @@
 
 一个实现了 Pixiv 相关站点的易用化 API 的程序，供 [Pixiv Viewer](https://github.com/asadahimeka/pixiv-viewer) 使用。
 
-Demo: [api.pxve.cc](https://api.pxve.cc)
-
-API 文档：[api.pxve.cc/docs](https://api.pxve.cc/docs)
-
 >【维护状态变更通知】
 >
 > 近期本项目 API 实例遭自动化脚本(IP 109.122.3.151; Hong Kong/ASN214661 - ALICE NETWORKS LTD)异常调用，致上游账号被永久封禁，**我们对此强烈谴责**。经考虑，自即日起，本项目转入**停止维护**状态（非关闭）。现有功能可继续正常使用，但不再提供更新、修复与技术支持，因外部原因导致的功能失效亦不再处理。详见[此文档](./ABUSE.md)。
